@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 import { XIcon } from '@heroicons/react/solid'
 import { PhotographIcon } from '@heroicons/react/outline'
 
@@ -6,6 +6,11 @@ const Input = () => {
 
     const [input, setInput] = useState()
     const [selectedFile, setSelectedFile] = useState(null)
+    const filePickerRef = useRef(null)
+
+    const addImageToPost = () => {
+
+    }
 
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto`}>
@@ -37,8 +42,9 @@ const Input = () => {
 
             <div className='flex items-center justify-between pt-2.5'>
                 <div className='flex items-center'>
-                    <div className='icon' >
+                    <div className='icon' onClick={()=> filePickerRef.current.click()}>
                         <PhotographIcon className='h-[22px] text-[#1d9bf0]'/>
+                        <input type={'file'} hidden onChange={addImageToPost} ref={filePickerRef}/>
                     </div>
                 </div>
             </div>
