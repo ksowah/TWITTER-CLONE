@@ -1,5 +1,13 @@
 import Image from 'next/image'
 import SidebarItems from '../components/SidebarItems'
+import { HomeIcon } from '@heroicons/react/solid'
+import { HashtagIcon,
+         BellIcon,
+         InboxIcon,
+         BookmarkIcon,
+         ClipboardListIcon,
+         UserIcon,
+         DotsCircleHorizontalIcon } from '@heroicons/react/outline'
 
 const Sidebar = () => {
   return (
@@ -12,7 +20,14 @@ const Sidebar = () => {
             />
         </div>
         <div className='space-y-2.5 mt-4 mb-2.5 xl:ml-24'>
-            <SidebarItems />
+            <SidebarItems text='Home' Icon={HomeIcon} active/>
+            <SidebarItems text='Explore' Icon={HashtagIcon}/>
+            <SidebarItems text='Notifications' Icon={BellIcon}/>
+            <SidebarItems text='Messages' Icon={InboxIcon}/>
+            <SidebarItems text='Bookmarks' Icon={BookmarkIcon}/>
+            <SidebarItems text='Lists' Icon={ClipboardListIcon}/>
+            <SidebarItems text='Profile' Icon={UserIcon}/>
+            <SidebarItems text='home' Icon={DotsCircleHorizontalIcon}/>
         </div>
     </div>
   )
