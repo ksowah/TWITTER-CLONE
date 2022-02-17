@@ -33,11 +33,18 @@ const Input = () => {
 
     }
 
-    const sendPost = async () => {
+    const sendPostToDB = async () => {
         if(loading)return
         setLoading(true)
 
-       const docRef = await addDoc()
+       const docRef = await addDoc(collection(db, 'posts'), {
+        //    id: sessionStorage.user.uid,
+        //    username: sessionStorage.user.name,
+        //    userProfile: sessionStorage.user.image,
+        //    tag: sessionStorage.user.tag,
+           message: input,
+           timestamp: serverTimestamp()
+       })
     }
 
   return (
