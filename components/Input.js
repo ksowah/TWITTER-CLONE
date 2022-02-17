@@ -8,7 +8,7 @@ import { Picker } from 'emoji-mart'
 const Input = () => {
 
     const addEmoji = ()=> {
-        
+
     }
 
     const [input, setInput] = useState()
