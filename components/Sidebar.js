@@ -30,6 +30,11 @@ const Sidebar = () => {
             <SidebarItems text='home' Icon={DotsCircleHorizontalIcon}/>
         </div>
         <button className='hidden xl:inline ml-auto bg-[#1d9bf0] rounded-full text-white w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]'>Tweet</button>
+        <div>
+            <img 
+                src='https://avatars.githubusercontent.com/u/80095257?v=4'
+            />
+        </div>
     </div>
   )
 }
