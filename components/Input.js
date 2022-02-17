@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react'
-import { XIcon } from '@heroicons/react/solid'
+import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, XIcon } from '@heroicons/react/solid'
 import { PhotographIcon } from '@heroicons/react/outline'
 
 const Input = () => {
@@ -46,6 +46,19 @@ const Input = () => {
                         <PhotographIcon className='h-[22px] text-[#1d9bf0]'/>
                         <input type={'file'} hidden onChange={addImageToPost} ref={filePickerRef}/>
                     </div>
+                    <div className='icon'>
+                        <ChartBarIcon className='h-[22px] text-[#1d9bf0]'/>
+                        
+                    </div>
+                    <div className='icon'>
+                        <EmojiHappyIcon className='h-[22px] text-[#1d9bf0]'/>
+                        
+                    </div>
+                    <div className='icon'>
+                        <CalendarIcon className='h-[22px] text-[#1d9bf0]'/>
+                        
+                    </div>
+
                 </div>
             </div>
         </div>
