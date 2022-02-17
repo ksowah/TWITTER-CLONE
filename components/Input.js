@@ -24,6 +24,10 @@ const Input = () => {
 
     }
 
+    const sendPost = () => {
+        
+    }
+
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto`}>
         <img src="https://avatars.githubusercontent.com/u/80095257?v=4"
