@@ -9,7 +9,7 @@ import { addDoc,
          serverTimestamp,
          updateDoc
  } from 'firebase/firestore'
- import { getDownloadURL, getDownloadURL, ref, uploadString } from 'firebase/storage'
+ import { getDownloadURL, ref, uploadString } from 'firebase/storage'
  import { db, storage } from '../firebase'
 
 
