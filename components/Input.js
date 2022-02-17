@@ -3,6 +3,7 @@ import { XIcon } from '@heroicons/react/solid'
 import { PhotographIcon, CalendarIcon, ChartBarIcon, EmojiHappyIcon } from '@heroicons/react/outline'
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
+import { db, storage } from '../firebase'
 import { addDoc,
          collection,
          doc,
@@ -10,7 +11,7 @@ import { addDoc,
          updateDoc
  } from 'firebase/firestore'
  import { getDownloadURL, ref, uploadString } from 'firebase/storage'
- import { db, storage } from '../firebase'
+
 
 
 const Input = () => {
@@ -71,7 +72,7 @@ const Input = () => {
     }
 
   return (
-    <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto`}>
+    <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto ${loading && 'opacity-60'}`}>
         <img src="https://avatars.githubusercontent.com/u/80095257?v=4"
             className="h-11 w-11 rounded-full cursor-pointer"
         />
@@ -137,7 +138,8 @@ const Input = () => {
 
             <button className='bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md
             hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default'
-                disabled={!input.trim() && !selectedFile} >
+                disabled={!input.trim() && !selectedFile} 
+                onClick={sendPostToDB}>
                 Tweet
             </button>
         </div>
