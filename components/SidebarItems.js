@@ -1,5 +1,5 @@
 
-const SidebarItems = () => {
+const SidebarItems = ({Icon, text, active}) => {
   return (
     <div className="">
         
