@@ -9,7 +9,9 @@ const Sidebar = () => {
                 height={30}
             />
         </div>
-        
+        <div className='space-y-2'>
+            <SidebarItems />
+        </div>
     </div>
   )
 }
