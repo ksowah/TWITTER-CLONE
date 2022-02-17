@@ -3,7 +3,12 @@ import Sidebar from '../components/Sidebar'
 import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
 
-export default function Home() {
+export default function Home({trendingResults, followResults, providers}) {
+
+  const { data: session } = useSession()
+
+  if(!session) return <Login providers={providers}/>
+
   return (
     <div className=''>
       <Head>
