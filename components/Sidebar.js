@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import SidebarItems from '../components/SidebarItems'
-import { HomeIcon } from '@heroicons/react/solid'
+import { HomeIcon, DotsHorizontalIcon } from '@heroicons/react/solid'
 import { HashtagIcon,
          BellIcon,
          InboxIcon,
@@ -30,10 +30,16 @@ const Sidebar = () => {
             <SidebarItems text='home' Icon={DotsCircleHorizontalIcon}/>
         </div>
         <button className='hidden xl:inline ml-auto bg-[#1d9bf0] rounded-full text-white w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]'>Tweet</button>
-        <div>
+        <div className='text-[#d9d9d9] flex items-center justify-center hoverAnimation xl:ml-auto xl:-mr-5 mt-auto'>
             <img 
                 src='https://avatars.githubusercontent.com/u/80095257?v=4'
+                className='h-10 w-10 rounded-full xl:mr-2.5'
             />
+            <div className='hidden xl:inline leading-5'>
+                <h4 className='font-bold'>Kelvin Sowah</h4>
+                <p className='text-[#6e767d]'>@gmail.com</p>
+            </div>
+            <DotsHorizontalIcon className='h-5 hidden xl:inline ml-10' />
         </div>
     </div>
   )
