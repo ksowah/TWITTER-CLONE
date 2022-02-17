@@ -1,8 +1,15 @@
 import { useState, useRef } from 'react'
 import { XIcon } from '@heroicons/react/solid'
 import { PhotographIcon, CalendarIcon, ChartBarIcon, EmojiHappyIcon } from '@heroicons/react/outline'
+import 'emoji-mart/css/emoji-mart.css'
+import { Picker } from 'emoji-mart'
+
 
 const Input = () => {
+
+    const addEmoji = ()=> {
+        
+    }
 
     const [input, setInput] = useState()
     const [selectedFile, setSelectedFile] = useState(null)
@@ -60,7 +67,18 @@ const Input = () => {
                         
                     </div>
 
-                    {}
+                    {showEmojis && (
+                        <Picker 
+                            style={{
+                                position: "absolute",
+                                marginTop: "465px",
+                                marginLeft: -40,
+                                maxWidth: "320px",
+                                borderRadius: "20px",
+                            }}
+                            theme="dark"
+                        />
+                    )}
 
                 </div>
             </div>
