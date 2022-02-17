@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { XIcon } from '@heroicons/react/solid'
+import { PhotographIcon } from '@heroicons/react/outline'
 
 const Input = () => {
 
@@ -32,6 +33,14 @@ const Input = () => {
                     </div>
                 )}
                
+            </div>
+
+            <div className='flex items-center justify-between pt-2.5'>
+                <div className='flex items-center'>
+                    <div className=''>
+                        <PhotographIcon />
+                    </div>
+                </div>
             </div>
         </div>
     </div>
