@@ -2,6 +2,7 @@ import Head from 'next/head'
 import Sidebar from '../components/Sidebar'
 import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
+import Login from '../components/Login'
 
 export default function Home({trendingResults, followResults, providers}) {
 
