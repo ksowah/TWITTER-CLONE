@@ -9,6 +9,8 @@ import { addDoc,
          serverTimestamp,
          updateDoc
  } from 'firebase/firestore'
+ import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+ import { db, storage } from '../firebase'
 
 
 const Input = () => {
