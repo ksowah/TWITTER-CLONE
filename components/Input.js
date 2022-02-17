@@ -9,7 +9,7 @@ import { addDoc,
          serverTimestamp,
          updateDoc
  } from 'firebase/firestore'
- import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+ import { getDownloadURL, getDownloadURL, ref, uploadString } from 'firebase/storage'
  import { db, storage } from '../firebase'
 
 
@@ -45,6 +45,23 @@ const Input = () => {
            message: input,
            timestamp: serverTimestamp()
        })
+
+       const imageRef = ref(storage, `post/${docRef.id}/image`)
+
+       if(selectedFile){
+           await uploadString(imageRef, selectedFile, "data_url")
+           .then(async () => {
+               const downloadURL = await getDownloadURL(imageRef)
+               await updateDoc(doc(db, "posts", docRef.id), {
+                   imagePost: downloadURL,
+               })
+           })
+       }
+
+       setLoading(false)
+       setInput('')
+       setSelectedFile(null)
+       setShowEmojis(false)
     }
 
   return (
