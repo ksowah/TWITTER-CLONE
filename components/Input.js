@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { XIcon } from '@heroicons/react/solid'
 
 const Input = () => {
 
@@ -21,7 +22,7 @@ const Input = () => {
                 />
                 <div className='relative'>
                     <div className='absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer'>
-                        <XIcon />
+                        <XIcon className='text-white h-5'/>
                     </div>
                 </div>
             </div>
