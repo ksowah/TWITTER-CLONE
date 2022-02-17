@@ -20,8 +20,8 @@ const Input = () => {
                 text-[#d9d9d9] text-md placeholder-gray-500 tracking-wide w-full min-h-[50px]' 
                 />
                 <div className='relative'>
-                    <div className=''>
-
+                    <div className='absolute w-8 h-8 bg-[#15181c] hover:bg-[#272c26] bg-opacity-75 rounded-full flex items-center justify-center top-1 left-1 cursor-pointer'>
+                        <XIcon />
                     </div>
                 </div>
             </div>
