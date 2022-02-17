@@ -3,6 +3,7 @@ import { useState } from 'react'
 const Input = () => {
 
     const [input, setInput] = useState()
+    const [selectedFile, setSelectedFile] = useState(null)
 
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto`}>
@@ -18,6 +19,11 @@ const Input = () => {
                 className='bg-transparent outline-none 
                 text-[#d9d9d9] text-md placeholder-gray-500 tracking-wide w-full min-h-[50px]' 
                 />
+                <div className='relative'>
+                    <div className=''>
+
+                    </div>
+                </div>
             </div>
         </div>
     </div>
