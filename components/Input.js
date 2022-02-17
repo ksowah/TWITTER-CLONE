@@ -86,6 +86,11 @@ const Input = () => {
                     )}
 
                 </div>
+
+                <button className='bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md
+                hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default'>
+                    Tweet
+                </button>
             </div>
         </div>
     </div>
