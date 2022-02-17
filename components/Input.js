@@ -7,14 +7,18 @@ import { Picker } from 'emoji-mart'
 
 const Input = () => {
 
-    const addEmoji = ()=> {
-
-    }
-
     const [input, setInput] = useState()
     const [selectedFile, setSelectedFile] = useState(null)
     const filePickerRef = useRef(null)
     const [showEmojis, setShowEmojis] = useState(false)
+
+    const addEmoji = (e)=> {
+        let sym = e.unified.split("-")
+        let codesArray = []
+        sym.forEach((el) => codesArray.push("0x" + el))
+        let emoji = String.fromCodePoint(...codesArray)
+        setInput(input + emoji)
+    }
 
     const addImageToPost = () => {
 
@@ -69,6 +73,7 @@ const Input = () => {
 
                     {showEmojis && (
                         <Picker 
+                        onSelect={addEmoji}
                             style={{
                                 position: "absolute",
                                 marginTop: "465px",
