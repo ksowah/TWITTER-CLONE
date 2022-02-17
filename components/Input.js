@@ -3,6 +3,12 @@ import { XIcon } from '@heroicons/react/solid'
 import { PhotographIcon, CalendarIcon, ChartBarIcon, EmojiHappyIcon } from '@heroicons/react/outline'
 import 'emoji-mart/css/emoji-mart.css'
 import { Picker } from 'emoji-mart'
+import { addDoc,
+         collection,
+         doc,
+         serverTimestamp,
+         updateDoc
+ } from 'firebase/firestore'
 
 
 const Input = () => {
@@ -25,11 +31,11 @@ const Input = () => {
 
     }
 
-    const sendPost = () => {
+    const sendPost = async () => {
         if(loading)return
         setLoading(true)
 
-       
+       const docRef = await addDoc()
     }
 
   return (
