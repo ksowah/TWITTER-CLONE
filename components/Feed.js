@@ -10,6 +10,7 @@ const Feed = () => {
             </div>
             
         </div>
+        <Input />
     </div>
   )
 }
