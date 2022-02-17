@@ -9,6 +9,7 @@ const Sidebar = () => {
                 height={30}
             />
         </div>
+        
     </div>
   )
 }
