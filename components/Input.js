@@ -7,6 +7,7 @@ const Input = () => {
     const [input, setInput] = useState()
     const [selectedFile, setSelectedFile] = useState(null)
     const filePickerRef = useRef(null)
+    const [showEmojis, setShowEmojis] = useState(false)
 
     const addImageToPost = () => {
 
@@ -50,7 +51,7 @@ const Input = () => {
                         <ChartBarIcon className='h-[22px] text-[#1d9bf0]'/>
                         
                     </div>
-                    <div className='icon'>
+                    <div className='icon' onClick={()=>setShowEmojis(!showEmojis)}>
                         <EmojiHappyIcon className='h-[22px] text-[#1d9bf0]'/>
                         
                     </div>
