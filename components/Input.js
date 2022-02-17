@@ -11,6 +11,7 @@ const Input = () => {
     const [selectedFile, setSelectedFile] = useState(null)
     const filePickerRef = useRef(null)
     const [showEmojis, setShowEmojis] = useState(false)
+    const [loading, setLoading] = useState(false)
 
     const addEmoji = (e)=> {
         let sym = e.unified.split("-")
@@ -25,7 +26,10 @@ const Input = () => {
     }
 
     const sendPost = () => {
-        
+        if(loading)return
+        setLoading(true)
+
+       
     }
 
   return (
