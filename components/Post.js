@@ -38,16 +38,14 @@ const Post = ({id, post, postPage}) => {
                 <div className='icon group flex-shrink-0 ml-auto'>
                     <DotsHorizontalIcon className='h-5 text-[#6e767d] group-hover:text-[#1d9bf0]'/>
                 </div>
-                <div>
-                    {postPage && 
-                    (<p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>
+            </div>
+            {postPage && (<p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>
                             {post?.message}
                         </p>)}
-                    <img className='rounded-2xl max-h-[700px] object-cover mr-2'
-                        src={post?.imagePost}
-                    />
-                </div>
-            </div>
+            <img 
+                src={post?.imagePost}
+                
+            />
         </div>
     </div>
   )
