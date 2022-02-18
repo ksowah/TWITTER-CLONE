@@ -48,10 +48,10 @@ const Input = () => {
         setLoading(true)
 
        const docRef = await addDoc(collection(db, 'posts'), {
-           id: sessionStorage.user.uid,
-           username: sessionStorage.user.name,
-           userProfile: sessionStorage.user.image,
-           tag: sessionStorage.user.tag,
+           id: session.user.uid,
+           username: session.user.name,
+           userProfile: session.user.image,
+           tag: session.user.tag,
            message: input,
            timestamp: serverTimestamp()
        })
