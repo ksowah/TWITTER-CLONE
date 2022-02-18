@@ -1,4 +1,5 @@
 import { DotsHorizontalIcon } from '@heroicons/react/outline'
+import { ChatIcon } from '@heroicons/react/solid'
 import React from 'react'
 
 const Post = ({id, post, postPage}) => {
@@ -56,9 +57,14 @@ const Post = ({id, post, postPage}) => {
                         setIsOpen(true)
                     }}
                 >
-                    <div className='icon group-hover:bg-[#1d9bf0]'>
-
+                    <div className='icon group-hover:bg-[#1d9bf0] group-hover:bg-opacity-10'>
+                        <ChatIcon className='h-5 group-hover:text-[#1d9bf0]'/>
                     </div>
+                    {comments.length > 0 && (
+                        <span className='group-hover:text-[#1d9bf0] text-sm'>
+                            {comments.length}
+                        </span>
+                    )}
                 </div>
             </div>
         </div>
