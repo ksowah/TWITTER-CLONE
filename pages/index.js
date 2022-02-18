@@ -43,7 +43,7 @@ export async function getServerSideProps(context){
       trendingResults,
       followResults,
       providers,
-      session
+      session,
     }
   }
 }
