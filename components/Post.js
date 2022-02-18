@@ -44,7 +44,7 @@ const Post = ({id, post, postPage}) => {
                         </p>)}
             <img 
                 src={post?.imagePost}
-                
+                className="rounded-2xl max-h-[700px] object-cover mr-2"
             />
         </div>
     </div>
