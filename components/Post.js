@@ -17,6 +17,13 @@ const Post = ({id, post, postPage}) => {
                         className="h-11 w-11 roumded-full mr-4"
                     />
                 )}
+                <div className='text-[#6e767d]'>
+                    <div className='inline-block group'>
+                        <h4 className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline`}>
+                            {post?.username}</h4>
+                        <span>@{post?.tag}</span>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
