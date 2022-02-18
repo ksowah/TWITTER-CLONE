@@ -4,7 +4,9 @@ import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Login from '../components/Login'
 
-export default function Home({trendingResults, followResults, providers}) {
+export default function Home({providers, trendingResults, followResults}) {
+
+  console.log(providers);
 
   const { data: session } = useSession()
 
@@ -42,7 +44,7 @@ export async function getServerSideProps(context){
     props: {
       trendingResults,
       followResults,
-      providers,
+      providers: providers,
       session,
     }
   }
