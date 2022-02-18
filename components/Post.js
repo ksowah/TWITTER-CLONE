@@ -22,8 +22,11 @@ const Post = ({id, post, postPage}) => {
                         <h4 className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ${!postPage && "inline-block"}`}>
                             {post?.username}</h4>
                         <span className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}>@{post?.tag}</span>
-                    </div>
-                    
+                    </div>{" "}
+                    •{" "}
+                    <span className='hover:underline text-sm'>
+
+                    </span>
                 </div>
             </div>
         </div>
