@@ -21,8 +21,9 @@ const Post = ({id, post, postPage}) => {
                     <div className='inline-block group'>
                         <h4 className={`font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ${!postPage && "inline-block"}`}>
                             {post?.username}</h4>
-                        <span>@{post?.tag}</span>
+                        <span className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}>@{post?.tag}</span>
                     </div>
+                    
                 </div>
             </div>
         </div>
