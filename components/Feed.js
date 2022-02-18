@@ -1,10 +1,21 @@
 import {SparklesIcon} from '@heroicons/react/outline'
-import { useState } from 'react'
+import { collection, onSnapshot, orderBy } from 'firebase/firestore'
+import { useEffect, useState } from 'react'
 import Input from '../components/Input'
+import { db } from '../firebase'
 
 const Feed = () => {
 
   const [post, setPost] = useState([])
+
+  useEffect(()=>{
+    onSnapshot(
+      query(collection(db, "posts"), orderBy("timestamp", "desc")),
+      (snapshot) => {
+        setPost(snapshot.docs)
+      }
+    )
+  }, [db])
 
   return (
     <div className="text-white flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
@@ -17,7 +28,7 @@ const Feed = () => {
         </div>
         <Input />
         <div className='pb-72'>
-            
+
         </div>
     </div>
   )
