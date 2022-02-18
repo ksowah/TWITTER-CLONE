@@ -1,5 +1,5 @@
 import {SparklesIcon} from '@heroicons/react/outline'
-import { collection, onSnapshot, orderBy } from 'firebase/firestore'
+import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import Input from '../components/Input'
 import { db } from '../firebase'
