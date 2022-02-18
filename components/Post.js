@@ -1,3 +1,4 @@
+import { DotsHorizontalIcon } from '@heroicons/react/solid'
 import React from 'react'
 
 const Post = ({id, post, postPage}) => {
@@ -34,8 +35,8 @@ const Post = ({id, post, postPage}) => {
                         </p>)
                     }
                 </div>
-                <div>
-                    
+                <div className='icon group flex-shrink-0 ml-auto'>
+                    <DotsHorizontalIcon className='h-5 text-[#6e767d] group-hover:text-[#1d9bf0]'/>
                 </div>
             </div>
         </div>
