@@ -29,10 +29,13 @@ const Post = ({id, post, postPage}) => {
                     </span>
 
                     {
-                        !postPage && <p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>
-                            {post?.text}
-                        </p>
+                        !postPage && (<p className='text-[#d9d9d9] text-[15px] sm:text-base mt-0.5'>
+                            {post?.message}
+                        </p>)
                     }
+                </div>
+                <div>
+                    
                 </div>
             </div>
         </div>
