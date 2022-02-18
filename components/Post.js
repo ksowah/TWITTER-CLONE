@@ -24,7 +24,7 @@ const Post = ({id, post, postPage}) => {
                         <span className={`text-sm sm:text-[15px] ${!postPage && "ml-1.5"}`}>@{post?.tag}</span>
                     </div>{" "}
                     •{" "}
-                    <span className='hover:underline text-sm'>
+                    <span className='hover:underline text-sm sm:text-[15px]'>
 
                     </span>
                 </div>
