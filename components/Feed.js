@@ -3,16 +3,17 @@ import { collection, onSnapshot, orderBy, query } from 'firebase/firestore'
 import { useEffect, useState } from 'react'
 import Input from '../components/Input'
 import { db } from '../firebase'
+import Post from './Post'
 
 const Feed = () => {
 
-  const [post, setPost] = useState([])
+  const [posts, setPosts] = useState([])
 
   useEffect(()=>
     onSnapshot(
       query(collection(db, "posts"), orderBy("timestamp", "desc")),
       (snapshot) => {
-        setPost(snapshot.docs)
+        setPosts(snapshot.docs)
       }
     ), [db])
 
@@ -27,7 +28,12 @@ const Feed = () => {
         </div>
         <Input />
         <div className='pb-72'>
-
+          {posts.map(post => (
+            <Post key={post.id} 
+                id={post.id}
+                post={post.data()}
+              />
+          ))}
         </div>
     </div>
   )
