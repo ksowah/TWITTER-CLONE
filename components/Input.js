@@ -11,10 +11,13 @@ import { addDoc,
          updateDoc
  } from 'firebase/firestore'
  import { getDownloadURL, ref, uploadString } from 'firebase/storage'
+import { useSession } from 'next-auth/react'
 
 
 
 const Input = () => {
+
+    const { data: session } = useSession()
 
     const [input, setInput] = useState('')
     const [selectedFile, setSelectedFile] = useState(null)
@@ -73,7 +76,7 @@ const Input = () => {
 
   return (
     <div className={`border-b border-gray-700 p-3 flex space-x-3 overflow-y-auto ${loading && 'opacity-60'}`}>
-        <img src="https://avatars.githubusercontent.com/u/80095257?v=4"
+        <img src={session.user.image}
             className="h-11 w-11 rounded-full cursor-pointer"
         />
 
