@@ -1,5 +1,5 @@
-import { DotsHorizontalIcon, HeartIcon } from '@heroicons/react/outline'
-import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
+import { DotsHorizontalIcon } from '@heroicons/react/outline'
+import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon, HeartIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router, useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -15,6 +15,7 @@ const Post = ({id, post, postPage}) => {
     const [isOpen, setIsOpen] = useRecoilState(modalState)
     const [postId, setPostId] = useRecoilState(postIdState)
     const [comments, setComments] = useState([])
+    const [liked, setLiked] = useState(false)
 
     const router = useRouter()
 
@@ -122,6 +123,14 @@ const Post = ({id, post, postPage}) => {
                             <HeartIcon className='h-5 group-hover:text-pink-600'/>
                         )}
                     </div>
+                            {likes.length > 0 && (
+                                <span 
+                                    className={`group-hover:text-pink-600 text-sm ${liked && "text-pink-600"}`}
+                                >
+                                    {likes.length}
+                                </span>
+                            )}
+            
                 </div>
 
                 <div className='icon group'>
