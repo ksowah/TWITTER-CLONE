@@ -60,12 +60,18 @@ export default function Modal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md px-1.5 py-2 border-b border-gray-700 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
+              <div className="inline-block w-full max-w-md px-1.5 py-2 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
               
-                    <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0'>
+                    <div className='hoverAnimation border-b border-gray-700 w-full h-9 flex items-center justify-center xl:px-0'>
                         <XIcon className='h-[22px] text-white' onClick={() => setIsOpen(false)}/>
                     </div>
-              
+                <div className='flex px-4 pt-5 pb-2.5 sm:px-6'>
+                    <div className='w-full'>
+                        <div className='text-[#6e767d] flex-gap-3 relative'>
+                            <span className='w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-600'/>
+                        </div>
+                    </div>
+                </div>
 
                 
               </div>
