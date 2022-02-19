@@ -1,4 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react'
+import { XIcon } from '@heroicons/react/solid'
 import { Fragment, useState } from 'react'
 
 export default function Modal() {
@@ -14,7 +15,7 @@ export default function Modal() {
 
   return (
     <>
-      <div className="fixed inset-0 flex items-center justify-center">
+      <div className="fixed inset-0 flex items-center justify-center bg-[#5b7083] bg-opacity-40 transition-opacity ">
         <button
           type="button"
           onClick={openModal}
@@ -59,29 +60,14 @@ export default function Modal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md p-6 my-8 overflow-hidden text-left align-middle transition-all transform bg-white shadow-xl rounded-2xl">
-                <Dialog.Title
-                  as="h3"
-                  className="text-lg font-medium leading-6 text-gray-900"
-                >
-                  Payment successful
-                </Dialog.Title>
-                <div className="mt-2">
-                  <p className="text-sm text-gray-500">
-                    Your payment has been successfully submitted. We’ve sent you
-                    an email with all of the details of your order.
-                  </p>
-                </div>
+              <div className="inline-block w-full max-w-md px-1.5 py-2 border-b border-gray-700 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
+              
+                    <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0'>
+                        <XIcon className='h-[22px] text-white' onClick={() => setIsOpen(false)}/>
+                    </div>
+              
 
-                <div className="mt-4">
-                  <button
-                    type="button"
-                    className="inline-flex justify-center px-4 py-2 text-sm font-medium text-blue-900 bg-blue-100 border border-transparent rounded-md hover:bg-blue-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:ring-blue-500"
-                    onClick={closeModal}
-                  >
-                    Got it, thanks!
-                  </button>
-                </div>
+                
               </div>
             </Transition.Child>
           </div>
