@@ -9,7 +9,7 @@ import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
 import moment from 'moment'
 import { async } from '@firebase/util'
-import { deleteDoc, doc, setDoc } from 'firebase/firestore'
+import { collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
 
@@ -24,6 +24,10 @@ const Post = ({id, post, postPage}) => {
 
     useEffect(()=> setLiked(likes.findIndex((like) => like.id === session?.user?.uid)
     !== -1), [likes])
+
+    useEffect(()=> onSnapshot(collection(db,"posts",id,"likes"), (snapshot)=>
+        setLikes(snapshot.docs)
+    ), [db, id])
 
     const likePost = async ()=> {
         if(liked) {
