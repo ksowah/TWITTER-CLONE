@@ -10,6 +10,7 @@ import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } fr
 import { useSession } from 'next-auth/react'
 import { Router } from 'next/router'
 import React from 'react'
+import Moment from 'react-moment'
 import { db } from '../firebase'
 
 const Post = ({id, post, postPage}) => {
@@ -40,7 +41,7 @@ const Post = ({id, post, postPage}) => {
                     </div>{" "}
                     •{" "}
                     <span className='hover:underline text-sm sm:text-[15px]'>
-                        {/* <Moment fromNow>{post?.timestamp?.todate()}</Moment> */}
+                        <Moment fromNow>{post?.timestamp?.todate()}</Moment>
                     </span>
 
                     {
