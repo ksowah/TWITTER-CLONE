@@ -6,7 +6,7 @@ import { DotsHorizontalIcon,
         UserIcon,
         DotsCircleHorizontalIcon,
      } from '@heroicons/react/outline'
-import { ChatIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
+import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router } from 'next/router'
 import React from 'react'
@@ -62,7 +62,7 @@ const Post = ({id, post, postPage}) => {
             />
             <div className={`text-[#6e767d] flex justify-between w-10/12
             ${postPage && "mx-auto"}`}>
-                <div
+                {/* <div
                     className='flex items-center space-x-1 group'
                     onClick={(e)=>{
                         e.stopPropagation()
@@ -78,7 +78,7 @@ const Post = ({id, post, postPage}) => {
                             {comments.length}
                         </span>
                     )}
-                </div>
+                </div> */}
                 {session.user.uid === post?.id ? (
                     <div
                         className='flex items-center space-x-1 group'
@@ -99,6 +99,13 @@ const Post = ({id, post, postPage}) => {
                         </div>
                     </div>
                 )}
+
+                <div className='icon group'>
+                    <ShareIcon className='h-5 group-hover:text-[#1d9bf0]'/>
+                </div>
+                <div className='icon group'>
+                    <ChartBarIcon className='h-5 group-hover:text-[#1d9bf0]'/>
+                </div>
             </div>
         </div>
     </div>
