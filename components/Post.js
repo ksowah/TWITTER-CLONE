@@ -1,5 +1,5 @@
-import { DotsHorizontalIcon, HeartIcon } from '@heroicons/react/outline'
-import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon,HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
+import { DotsHorizontalIcon, ChartBarIcon, HeartIcon, TrashIcon, ShareIcon, ChatIcon } from '@heroicons/react/outline'
+import { SwitchHorizontalIcon,HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
@@ -8,7 +8,6 @@ import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
 import moment from 'moment'
-import { async } from '@firebase/util'
 import { collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
@@ -26,9 +25,11 @@ const Post = ({id, post, postPage}) => {
     useEffect(()=> onSnapshot(collection(db,"posts",id,"likes"), (snapshot)=>
         setLikes(snapshot.docs)
     ), [db, id])
-
-    useEffect(()=> setLiked(likes.findIndex((like) => like.id === session?.user?.uid)
-    !== -1), [likes])
+ 
+ 
+    useEffect(()=>{
+        setLiked(likes.findIndex((like) => like.id === session?.user?.uid) !== -1)
+    },[likes])
 
     const likePost = async ()=> {
         if(liked) {
@@ -39,6 +40,8 @@ const Post = ({id, post, postPage}) => {
             })
         }
     }
+
+    console.log(likes);
 
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'
