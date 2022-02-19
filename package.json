@@ -8,6 +8,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.5",
     "emoji-mart": "^3.0.1",
     "firebase": "^9.6.6",
