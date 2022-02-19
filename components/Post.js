@@ -2,14 +2,14 @@ import { DotsHorizontalIcon, HeartIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon,HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router, useRouter } from 'next/router'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
 import moment from 'moment'
 import { async } from '@firebase/util'
-import { deleteDoc, setDoc } from 'firebase/firestore'
+import { deleteDoc, doc, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
 
@@ -21,6 +21,9 @@ const Post = ({id, post, postPage}) => {
     const [likes, setLikes] = useState([])
 
     const router = useRouter()
+
+    useEffect(()=> setLiked(likes.findIndex((like) => like.id === session?.user?.uid)
+    !== -1), [likes])
 
     const likePost = async ()=> {
         if(liked) {
@@ -123,6 +126,7 @@ const Post = ({id, post, postPage}) => {
                     className='flex items-center space-x-1 group'
                     onClick={(e) => {
                         e.stopPropagation()
+                        setLiked(!liked)
                         likePost()
                     }}
                 >
