@@ -3,6 +3,7 @@ import Sidebar from '../components/Sidebar'
 import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Login from '../components/Login'
+import Modal from '../components/Modal'
 
 export default function Home({providers, trendingResults, followResults}) {
 
@@ -23,6 +24,8 @@ export default function Home({providers, trendingResults, followResults}) {
       <main className='flex bg-black min-h-screen max-w-[1500px] mx-auto'>
         <Sidebar />
         <Feed />
+        {/* Widget */}
+        <Modal />
       </main>
     </div>
   )

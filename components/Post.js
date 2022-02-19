@@ -7,7 +7,6 @@ import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
-import moment from 'moment'
 import { collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
