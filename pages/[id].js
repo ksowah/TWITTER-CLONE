@@ -1,4 +1,18 @@
+import { useSession } from "next-auth/react"
+import Head from "next/head"
+import { useRouter } from "next/router"
+import { useRecoilState } from "recoil"
+import { modalState } from "../atoms/modalAtom"
+import Modal from "../components/Modal"
+import Sidebar from "../components/Sidebar"
+
 function PostPage (){
+
+    const [isOpen, setIsOpen] = useRecoilState(modalState)
+    const router =useRouter()
+    const { data: session } = useSession()
+    const { id } = router.query
+
     return(
     <div className=''>
         <Head>
@@ -9,8 +23,6 @@ function PostPage (){
   
         <main className='flex bg-black min-h-screen max-w-[1500px] mx-auto'>
           <Sidebar />
-          <Feed />
-          {/* Widget */}
             {isOpen && <Modal />} 
         </main>
       </div>
