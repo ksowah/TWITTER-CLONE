@@ -1,8 +1,21 @@
-import { DotsHorizontalIcon } from '@heroicons/react/outline'
-import { ChatIcon } from '@heroicons/react/solid'
+import { DotsHorizontalIcon,
+         HashtagIcon,
+        InboxIcon,
+        BookmarkIcon,
+        ClipboardListIcon,
+        UserIcon,
+        DotsCircleHorizontalIcon,
+     } from '@heroicons/react/outline'
+import { ChatIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
+import { useSession } from 'next-auth/react'
+import { Router } from 'next/router'
 import React from 'react'
+import { db } from '../firebase'
 
 const Post = ({id, post, postPage}) => {
+
+    const { data: session } = useSession()
+
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'>
         {!postPage && (
@@ -66,6 +79,26 @@ const Post = ({id, post, postPage}) => {
                         </span>
                     )}
                 </div>
+                {session.user.uid === post?.id ? (
+                    <div
+                        className='flex items-center space-x-1 group'
+                        onClick={(e)=>{
+                            e.stopPropagation()
+                            deleteDoc(doc(db, "posts", id))
+                            Router.push("/")
+                        }}
+                    >
+                        <div className='icon group-hover:bg-red-600/10'>
+                            <TrashIcon className='h-5 group-hover:text-red-600'/>
+                        </div>
+                    </div>
+                ) : (
+                    <div className='flex items-center space-x-1 group'>
+                        <div className='icon group-hover:bg-green-500/10'>
+                            <SwitchHorizontalIcon className='h-5 group-hover:text-green-500'/>
+                        </div>
+                    </div>
+                )}
             </div>
         </div>
     </div>
