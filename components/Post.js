@@ -1,4 +1,4 @@
-import { DotsHorizontalIcon } from '@heroicons/react/outline'
+import { DotsHorizontalIcon, HeartIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router, useRouter } from 'next/router'
@@ -105,6 +105,24 @@ const Post = ({id, post, postPage}) => {
                 )}
 
                 {/* Some codes will go here */}
+                <div 
+                    className='flex items-center space-x-1 group'
+                    onClick={(e) => {
+                        e.stopPropagation()
+                        likePost()
+                    }}
+                >
+                    <div className='icon group-hover:bg-pink-600/10'>
+                        {liked ? (
+                            <HeartIcon
+                                className='h-5 text-pink-600'
+
+                            />
+                        ) : (
+                            <HeartIcon className='h-5 group-hover:text-pink-600'/>
+                        )}
+                    </div>
+                </div>
 
                 <div className='icon group'>
                     <ShareIcon className='h-5 group-hover:text-[#1d9bf0]'/>
