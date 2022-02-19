@@ -2,7 +2,7 @@ import { Dialog, Transition } from '@headlessui/react'
 import { CalendarIcon, ChartBarIcon, EmojiHappyIcon, PhotographIcon } from '@heroicons/react/outline'
 import { XIcon } from '@heroicons/react/solid'
 import { Picker } from 'emoji-mart'
-import { doc, onSnapshot } from 'firebase/firestore'
+import { addDoc, doc, onSnapshot, serverTimestamp } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { Fragment, useEffect, useState } from 'react'
@@ -34,6 +34,28 @@ export default function Modal() {
         setPost(snapshot.data())
     })
   }, [db])
+
+  const addEmoji = (e)=> {
+    let sym = e.unified.split("-")
+    let codesArray = []
+    sym.forEach((el) => codesArray.push("0x" + el))
+    let emoji = String.fromCodePoint(...codesArray)
+    setInput(input + emoji)
+}
+
+const sendComment = async (e) => {
+    e.preventDefault()
+    await addDoc(collection(db, 'posts', postId,"comments"),{
+        comment: comment,
+        username: session.user.name,
+        tag: session.user.image,
+        timestamp: serverTimestamp()
+    })
+
+    setIsOpen(false)
+    setComment("")
+    router.push(`/${postId}`)
+}
 
   return (
     <>
@@ -122,9 +144,8 @@ export default function Modal() {
 
             <div className='flex items-center justify-between pt-2.5'>
             <div className='flex items-center'>
-                <div className='icon' onClick={()=> filePickerRef.current.click()}>
+                <div className='icon'>
                     <PhotographIcon className='h-[22px] text-[#1d9bf0]'/>
-                    <input type={'file'} hidden onChange={addImageToPost} ref={filePickerRef}/>
                 </div>
                 <div className='icon rotate-90'>
                     <ChartBarIcon className='h-[22px] text-[#1d9bf0]'/>
@@ -157,9 +178,8 @@ export default function Modal() {
 
             <button className='bg-[#1d9bf0] text-white rounded-full px-4 py-1.5 font-bold shadow-md
             hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default'
-                disabled={!input.trim() && !selectedFile} 
-                onClick={sendPostToDB}>
-                Tweet
+            >
+                Send
             </button>
         </div>
                             </div>
