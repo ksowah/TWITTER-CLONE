@@ -1,10 +1,13 @@
+import { doc, onSnapshot } from "firebase/firestore"
 import { useSession } from "next-auth/react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { useEffect } from "react"
 import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/modalAtom"
 import Modal from "../components/Modal"
 import Sidebar from "../components/Sidebar"
+import { db } from "../firebase"
 
 function PostPage (){
 
@@ -12,6 +15,13 @@ function PostPage (){
     const router =useRouter()
     const { data: session } = useSession()
     const { id } = router.query
+    const [post, setPost] = useState(second)
+
+    useEffect(()=>{
+        onSnapshot(doc(db, "posts", id), (snapshot) => {
+            setPost(snapshot.data())
+        })
+    },[])
 
     return(
     <div className=''>
