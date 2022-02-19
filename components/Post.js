@@ -1,7 +1,7 @@
 import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
-import { Router } from 'next/router'
+import { Router, useRouter } from 'next/router'
 import React, { useState } from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
@@ -16,8 +16,12 @@ const Post = ({id, post, postPage}) => {
     const [postId, setPostId] = useRecoilState(postIdState)
     const [comments, setComments] = useState([])
 
+    const router = useRouter()
+
   return (
-    <div className='p-3 flex cursor-pointer border-b border-gray-700'>
+    <div className='p-3 flex cursor-pointer border-b border-gray-700'
+        onClick={() => router.push(`/${id}`)}
+    >
         {!postPage && (
             <img src={post?.userProfile} 
             className="h-11 w-11 rounded-full mr-4"/>
