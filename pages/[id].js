@@ -3,6 +3,7 @@ import { collection, doc, onSnapshot, query } from "firebase/firestore"
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Head from "next/head"
 import { useRouter } from "next/router"
+import { comment } from "postcss"
 import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/modalAtom"
@@ -53,6 +54,13 @@ function PostPage ({providers, trendingResults, followResults}){
                 Dashboard
             </div>
             <Post id={id} post={post} postPage />
+            { comments.length > 0 && (
+                <div className="pb-72">
+                    {comments.map(comment =>(
+                        <Comment key={comment.id}/>
+                    ))}
+                </div>
+            ) }
           </div>
             {isOpen && <Modal />} 
         </main>
