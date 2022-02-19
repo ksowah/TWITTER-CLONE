@@ -58,6 +58,7 @@ function PostPage ({providers, trendingResults, followResults}){
                 <div className="pb-72">
                     {comments.map(comment =>(
                         <Comment key={comment.id}
+                        id={comment.id}
                         comment={comment.data()}/>
                     ))}
                 </div>
