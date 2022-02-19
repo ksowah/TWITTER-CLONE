@@ -1,5 +1,5 @@
 import { ArrowLeftIcon } from "@heroicons/react/outline"
-import { doc, onSnapshot } from "firebase/firestore"
+import { collection, doc, onSnapshot, query } from "firebase/firestore"
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Head from "next/head"
 import { useRouter } from "next/router"
@@ -19,11 +19,18 @@ function PostPage ({providers, trendingResults, followResults}){
     const { data: session } = useSession()
     const { id } = router.query
     const [post, setPost] = useState()
+    const [comments, setComments] = useState([])
 
     useEffect(()=>{
         onSnapshot(doc(db, "posts", id), (snapshot) => {
             setPost(snapshot.data())
         })
+    },[])
+
+    useEffect(()=>{
+        onSnapshot(query(collection(db, "posts", id, "comments"),
+        orderBy("timestamp", "desc"),
+        (snapshot) => setComments(snapshot.docs)))
     },[])
 
     if(!session) return <Login providers={providers}/>
