@@ -100,6 +100,8 @@ const Post = ({id, post, postPage}) => {
                     </div>
                 )}
 
+                {/* Some codes will go here */}
+
                 <div className='icon group'>
                     <ShareIcon className='h-5 group-hover:text-[#1d9bf0]'/>
                 </div>
