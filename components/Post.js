@@ -13,10 +13,12 @@ import React from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 
 const Post = ({id, post, postPage}) => {
 
     const { data: session } = useSession()
+    const [isOpen, setIsOpen] = useRecoilState(modalState)
 
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'>
