@@ -1,10 +1,12 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/solid'
+import { doc, onSnapshot } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
-import { Fragment, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
+import { db } from '../firebase'
 
 export default function Modal() {
 
@@ -22,6 +24,12 @@ export default function Modal() {
   function openModal() {
     setIsOpen(true)
   }
+
+  useEffect(()=>{
+    onSnapshot(doc(db, "posts", postId), (snapshot)=> {
+        setPost(snapshot.data())
+    })
+  }, [db])
 
   return (
     <>
