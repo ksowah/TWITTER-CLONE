@@ -1,9 +1,19 @@
 import { Dialog, Transition } from '@headlessui/react'
 import { XIcon } from '@heroicons/react/solid'
+import { useSession } from 'next-auth/react'
+import { useRouter } from 'next/router'
 import { Fragment, useState } from 'react'
+import { useRecoilState } from 'recoil'
+import { modalState, postIdState } from '../atoms/modalAtom'
 
 export default function Modal() {
-  let [isOpen, setIsOpen] = useState(true)
+
+    const { data: session } = useSession()
+    const [postId, setPostId] = useRecoilState(postIdState)
+    const [post, setPost] = useState()
+    const [isOpen, setIsOpen] = useRecoilState(modalState)
+    const [comment, setComment] = useState("")
+    const router = useRouter()
 
   function closeModal() {
     setIsOpen(false)
@@ -60,15 +70,19 @@ export default function Modal() {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
-              <div className="inline-block w-full max-w-md px-1.5 py-2 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
-              
-                    <div className='hoverAnimation border-b border-gray-700 w-full h-9 flex items-center justify-center xl:px-0'>
-                        <XIcon className='h-[22px] text-white' onClick={() => setIsOpen(false)}/>
+              <div className="inline-block w-full max-w-md px-1.5 py-2 border-b border-gray-700 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
+                    <div className='flex px-1.5 py-2 items-center  border-b border-gray-700'>
+                        <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0'>
+                            <XIcon className='h-[22px] text-white' onClick={() => setIsOpen(false)}/>
+                        </div>
                     </div>
                 <div className='flex px-4 pt-5 pb-2.5 sm:px-6'>
                     <div className='w-full'>
                         <div className='text-[#6e767d] flex-gap-3 relative'>
                             <span className='w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-600'/>
+                            <img src={post?.userProfile}
+                                className='h-11 w-11 rounded-full'
+                            />
                         </div>
                     </div>
                 </div>
