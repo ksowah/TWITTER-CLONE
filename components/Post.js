@@ -22,12 +22,13 @@ const Post = ({id, post, postPage}) => {
 
     const router = useRouter()
 
-    useEffect(()=> setLiked(likes.findIndex((like) => like.id === session?.user?.uid)
-    !== -1), [likes])
 
     useEffect(()=> onSnapshot(collection(db,"posts",id,"likes"), (snapshot)=>
         setLikes(snapshot.docs)
     ), [db, id])
+
+    useEffect(()=> setLiked(likes.findIndex((like) => like.id === session?.user?.uid)
+    !== -1), [likes])
 
     const likePost = async ()=> {
         if(liked) {
@@ -130,7 +131,6 @@ const Post = ({id, post, postPage}) => {
                     className='flex items-center space-x-1 group'
                     onClick={(e) => {
                         e.stopPropagation()
-                        setLiked(!liked)
                         likePost()
                     }}
                 >
