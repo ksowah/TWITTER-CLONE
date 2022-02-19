@@ -12,6 +12,7 @@ import { Router } from 'next/router'
 import React from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
+import { useRecoilState } from 'recoil'
 
 const Post = ({id, post, postPage}) => {
 
