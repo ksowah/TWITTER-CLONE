@@ -9,7 +9,6 @@ import { modalState } from '../atoms/modalAtom'
 
 export default function Home({providers, trendingResults, followResults}) {
 
-  console.log(providers);
 
   // recoil state to open the dialogue for the comment section
   const [isOpen, setIsOpen] = useRecoilState(modalState)
