@@ -104,6 +104,18 @@ export default function Modal() {
                                    </span>
                                    <p className='text-[#d9d9d9] text-[15px] sm:text-base ml-2'>{post?.message}</p>
                                 </div>
+                            </div>     
+                        </div>
+                        <div className='mt-7 flex space-x-3 w-full'>
+                             <img src={session.user.image} className='h-11 w-11 rounded-full'/>
+                            <div className='flex-grow mt-2'>
+                                <textarea 
+                                    value={comment}
+                                    onChange={(e)=> setComment(e.target.value)}
+                                    placeholder={`send ${post?.username} a feedback`}
+                                    rows='2'
+                                    className='bg-transparent outline-none text-[#d9d9d9] text-md placeholder-gray-500 tracking-wide w-full min-h-[80px]'
+                                />
                             </div>
                         </div>
                     </div>
