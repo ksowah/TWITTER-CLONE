@@ -29,9 +29,9 @@ function PostPage ({providers, trendingResults, followResults}){
 
     useEffect(()=>{
         onSnapshot(query(collection(db, "posts", id, "comments"),
-        orderBy("timestamp", "desc"),
-        (snapshot) => setComments(snapshot.docs)))
-    },[])
+        orderBy("timestamp", "desc")),
+        (snapshot) => setComments(snapshot.docs))
+    },[db, id])
 
     if(!session) return <Login providers={providers}/>
 
