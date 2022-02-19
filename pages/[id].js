@@ -57,7 +57,8 @@ function PostPage ({providers, trendingResults, followResults}){
             { comments.length > 0 && (
                 <div className="pb-72">
                     {comments.map(comment =>(
-                        <Comment key={comment.id}/>
+                        <Comment key={comment.id}
+                        comment={comment.data()}/>
                     ))}
                 </div>
             ) }
