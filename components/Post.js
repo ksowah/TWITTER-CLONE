@@ -7,6 +7,7 @@ import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
+import moment from 'moment'
 
 const Post = ({id, post, postPage}) => {
 
@@ -37,7 +38,7 @@ const Post = ({id, post, postPage}) => {
                     </div>{" "}
                     •{" "}
                     <span className='hover:underline text-sm sm:text-[15px]'>
-                        <Moment fromNow>{post?.timestamp?.todate()}</Moment>
+                        {/* <Moment fromNow>{post?.timestamp?.todate()}</Moment> */}
                     </span>
 
                     {
@@ -59,7 +60,7 @@ const Post = ({id, post, postPage}) => {
             />
             <div className={`text-[#6e767d] flex justify-between w-10/12
             ${postPage && "mx-auto"}`}>
-                {/* <div
+                <div
                     className='flex items-center space-x-1 group'
                     onClick={(e)=>{
                         e.stopPropagation()
@@ -75,7 +76,7 @@ const Post = ({id, post, postPage}) => {
                             {comments.length}
                         </span>
                     )}
-                </div> */}
+                </div>
                 {session.user.uid === post?.id ? (
                     <div
                         className='flex items-center space-x-1 group'
