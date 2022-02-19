@@ -30,7 +30,7 @@ export default function Home({providers, trendingResults, followResults}) {
         <Sidebar />
         <Feed />
         {/* Widget */}
-          {isOpen && <Modal />} 
+          {!isOpen && <Modal />} 
       </main>
     </div>
   )
