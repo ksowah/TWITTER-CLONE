@@ -44,8 +44,6 @@ const Post = ({id, post, postPage}) => {
         }
     }
 
-    console.log(likes);
-
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'
         onClick={() => router.push(`/${id}`)}
@@ -61,7 +59,7 @@ const Post = ({id, post, postPage}) => {
                     <img 
                         src={post?.userProfile}
                         alt="profile Pic"
-                        className="h-11 w-11 roumded-full mr-4"
+                        className="h-11 w-11 rounded-full mr-4"
                     />
                 )}
                 <div className='text-[#6e767d]'>
