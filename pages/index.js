@@ -4,10 +4,15 @@ import Feed from '../components/Feed'
 import { getProviders, getSession, useSession } from "next-auth/react"
 import Login from '../components/Login'
 import Modal from '../components/Modal'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/modalAtom'
 
 export default function Home({providers, trendingResults, followResults}) {
 
   console.log(providers);
+
+  // recoil state to open the dialogue for the comment section
+  const [isOpen, setIsOpen] = useRecoilState(modalState)
 
   const { data: session } = useSession()
 
@@ -25,7 +30,7 @@ export default function Home({providers, trendingResults, followResults}) {
         <Sidebar />
         <Feed />
         {/* Widget */}
-        <Modal />
+          {isOpen && <Modal />} 
       </main>
     </div>
   )
