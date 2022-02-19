@@ -104,6 +104,8 @@ const sendComment = async (e) => {
               leaveFrom="opacity-100 scale-100"
               leaveTo="opacity-0 scale-95"
             >
+
+              {/*   My Code starts here */}
               <div className="inline-block w-full max-w-md px-1.5 py-2 border-b border-gray-700 my-8 overflow-hidden text-left align-middle transition-all transform bg-black shadow-xl rounded-2xl">
                     <div className='flex px-1.5 py-2 items-center  border-b border-gray-700'>
                         <div className='hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0'>
