@@ -1,7 +1,7 @@
 import { DotsHorizontalIcon, HeartIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon,HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
-import { Router, useRouter } from 'next/router'
+import { useRouter } from 'next/router'
 import React, { useEffect, useState } from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
@@ -106,7 +106,7 @@ const Post = ({id, post, postPage}) => {
                         onClick={(e)=>{
                             e.stopPropagation()
                             deleteDoc(doc(db, "posts", id))
-                            Router.push("/")
+                            router.push("/")
                         }}
                     >
                         <div className='icon group-hover:bg-red-600/10'>
