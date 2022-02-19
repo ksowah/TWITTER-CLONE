@@ -2,7 +2,7 @@ import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router } from 'next/router'
-import React from 'react'
+import React, { useState } from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
@@ -13,6 +13,8 @@ const Post = ({id, post, postPage}) => {
 
     const { data: session } = useSession()
     const [isOpen, setIsOpen] = useRecoilState(modalState)
+    const [postId, setPostId] = useRecoilState(postIdState)
+    const [comments, setComments] = useState([])
 
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'>
