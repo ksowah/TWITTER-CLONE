@@ -8,6 +8,8 @@ import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
 import moment from 'moment'
+import { async } from '@firebase/util'
+import { deleteDoc, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
 
@@ -19,6 +21,16 @@ const Post = ({id, post, postPage}) => {
     const [likes, setLikes] = useState([])
 
     const router = useRouter()
+
+    const likePost = async ()=> {
+        if(liked) {
+            await deleteDoc(doc(db,"posts", id,"likes",session.user.uid))
+        }else {
+            await setDoc(doc(db,"posts",id,"liked",session.user.uid), {
+                username: session.user.name,
+            })
+        }
+    }
 
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'
@@ -111,7 +123,7 @@ const Post = ({id, post, postPage}) => {
                     className='flex items-center space-x-1 group'
                     onClick={(e) => {
                         e.stopPropagation()
-                       // likePost()
+                        likePost()
                     }}
                 >
                     <div className='icon group-hover:bg-pink-600/10'>
