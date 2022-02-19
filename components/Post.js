@@ -7,7 +7,7 @@ import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
-import { collection, deleteDoc, doc, onSnapshot, setDoc } from 'firebase/firestore'
+import { collection, deleteDoc, doc, onSnapshot, orderBy, query, setDoc } from 'firebase/firestore'
 
 const Post = ({id, post, postPage}) => {
 
@@ -27,7 +27,7 @@ const Post = ({id, post, postPage}) => {
 
     useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), (snapshot)=>
         setComments(snapshot.docs)
-    ), [db])
+    ), [db, id])
  
  
     useEffect(()=>{
