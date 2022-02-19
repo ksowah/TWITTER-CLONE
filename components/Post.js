@@ -61,7 +61,7 @@ const Post = ({id, post, postPage}) => {
                     </div>{" "}
                     •{" "}
                     <span className='hover:underline text-sm sm:text-[15px]'>
-                        <Moment fromNow>{post?.timestamp?.todate()}</Moment>
+                        <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
                     </span>
 
                     {
