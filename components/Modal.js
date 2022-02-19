@@ -4,6 +4,7 @@ import { doc, onSnapshot } from 'firebase/firestore'
 import { useSession } from 'next-auth/react'
 import { useRouter } from 'next/router'
 import { Fragment, useEffect, useState } from 'react'
+import Moment from 'react-moment'
 import { useRecoilState } from 'recoil'
 import { modalState, postIdState } from '../atoms/modalAtom'
 import { db } from '../firebase'
@@ -86,11 +87,23 @@ export default function Modal() {
                     </div>
                 <div className='flex px-4 pt-5 pb-2.5 sm:px-6'>
                     <div className='w-full'>
-                        <div className='text-[#6e767d] flex-gap-3 relative'>
+                        <div className='text-[#6e767d] flex relative'>
                             <span className='w-0.5 h-full z-[-1] absolute left-5 top-11 bg-gray-600'/>
                             <img src={post?.userProfile}
-                                className='h-11 w-11 rounded-full'
+                                className='h-11 w-11 rounded-full '
                             />
+                            <div>
+                                <div className='inline-block group'>
+                                    <h4 className='font-bold text-[15px] sm:text-base text-[#d9d9d9] group-hover:underline ml-2 inline-block '>{post?.username}</h4>
+                                    <span className='ml-1.5 text-sm sm:text-[15px]'>
+                                        @{post?.tag}
+                                    </span>{" "}
+                                    •{" "}
+                                    <span className='hover:underline text-sm sm:text-[15px]'>
+                                        <Moment fromNow>{post?.timestamp?.toDate()}</Moment>
+                                   </span>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
