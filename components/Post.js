@@ -1,11 +1,4 @@
-import { DotsHorizontalIcon,
-         HashtagIcon,
-        InboxIcon,
-        BookmarkIcon,
-        ClipboardListIcon,
-        UserIcon,
-        DotsCircleHorizontalIcon,
-     } from '@heroicons/react/outline'
+import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import { ChartBarIcon, ChatIcon, ShareIcon, SwitchHorizontalIcon, TrashIcon } from '@heroicons/react/solid'
 import { useSession } from 'next-auth/react'
 import { Router } from 'next/router'
@@ -13,7 +6,7 @@ import React from 'react'
 import Moment from 'react-moment'
 import { db } from '../firebase'
 import { useRecoilState } from 'recoil'
-import { modalState } from '../atoms/modalAtom'
+import { modalState, postIdState } from '../atoms/modalAtom'
 
 const Post = ({id, post, postPage}) => {
 
