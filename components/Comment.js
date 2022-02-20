@@ -1,3 +1,4 @@
+import { ChartBarIcon, DotsHorizontalIcon, ShareIcon } from "@heroicons/react/outline"
 import Moment from "react-moment"
 
 
@@ -23,10 +24,21 @@ const Comment = ({id, comment}) => {
                   <span className="hover:underline text-sm sm:text-[15px]">
                       <Moment fromNow>{comment?.timestamp?.toDate()}</Moment>
                   </span>
-                  <p className="text-[#d9d9d9] mt-0.5 max-w-lg overflow-scroll text-[15px] sm:text-base">
+                  <p className="text-[#d9d9d9] mt-0.5 max-w-lg overflow-auto text-[15px] sm:text-base">
                     {comment?.comment}
                   </p>
               </div>
+              <div className="icon group flex-shrink-0">
+                  <DotsHorizontalIcon className="h-5 text-[#6e767d] group-hover:text-[#1d9bf0]"/>
+              </div>
+            </div>
+            <div className="flex text-[#6e767d] justify-between w-10/12">
+                <div className="icon group">
+                    <ShareIcon className="h-5 group-hover:text-[#1d9bf0]"/>
+                </div>
+                <div className="icon group">
+                    <ChartBarIcon className="h-5 group-hover:text-[#1d9bf0]"/>
+                </div>
             </div>
         </div>
     </div>
