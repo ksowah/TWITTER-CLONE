@@ -173,3 +173,4 @@ const Post = ({id, post, postPage}) => {
 }
 
 export default Post
+
