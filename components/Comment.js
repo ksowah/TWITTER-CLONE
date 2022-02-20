@@ -1,4 +1,4 @@
-import { ChartBarIcon, DotsHorizontalIcon, ShareIcon } from "@heroicons/react/outline"
+import { ChartBarIcon, ChatIcon, DotsHorizontalIcon, HeartIcon, ShareIcon } from "@heroicons/react/outline"
 import Moment from "react-moment"
 
 
@@ -33,6 +33,12 @@ const Comment = ({id, comment}) => {
               </div>
             </div>
             <div className="flex text-[#6e767d] justify-between w-10/12">
+                <div className="icon group">
+                    <ChatIcon className="h-5 group-hover:text-[#1d9bf0]"/>
+                </div>
+                <div className="icon group">
+                    <HeartIcon className="h-5 group-hover:text-pink-600"/>
+                </div>
                 <div className="icon group">
                     <ShareIcon className="h-5 group-hover:text-[#1d9bf0]"/>
                 </div>
