@@ -1,4 +1,5 @@
 import { DotsHorizontalIcon } from "@heroicons/react/solid"
+import Image from "next/image"
 
 const Trending = ({result}) => {
   return (
@@ -22,9 +23,9 @@ const Trending = ({result}) => {
         </div>
         {result.img ? (
             <Image 
-                src={result.imd}
-                width={70}
-                height={70}
+                src={result.img}
+                width={"70"}
+                height={"70"}
                 objectFit="cover"
                 className="rounded-2xl"
             />
