@@ -28,8 +28,6 @@ const Post = ({id, post, postPage}) => {
     useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), (snapshot)=>
         setComments(snapshot.docs)
     ), [db, id])
-
-    console.log(comments[0]?.id);
  
  
     useEffect(()=>{
