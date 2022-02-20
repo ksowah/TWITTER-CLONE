@@ -28,6 +28,8 @@ const Post = ({id, post, postPage}) => {
     useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), (snapshot)=>
         setComments(snapshot.docs)
     ), [db, id])
+
+    console.log(comments[0]?.id);
  
  
     useEffect(()=>{
@@ -43,6 +45,7 @@ const Post = ({id, post, postPage}) => {
             })
         }
     }
+
 
   return (
     <div className='p-3 flex cursor-pointer border-b border-gray-700'
@@ -130,7 +133,6 @@ const Post = ({id, post, postPage}) => {
                     </div>
                 )}
 
-                {/* Some codes will go here */}
                 <div 
                     className='flex items-center space-x-1 group'
                     onClick={(e) => {

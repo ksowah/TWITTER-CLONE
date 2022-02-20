@@ -27,13 +27,12 @@ function PostPage ({providers, trendingResults, followResults}){
         })
     },[])
 
-    useEffect(()=>{
-        onSnapshot(query(collection(db, "posts", id, "comment"),
-        orderBy("timestamp", "desc")),
-        (snapshot) => setComments(snapshot.docs))
-    },[db, id])
+    useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), (snapshot)=>
+    setComments(snapshot.docs)
+), [db, id])
 
     if(!session) return <Login providers={providers}/>
+
 
     return(
     <div className=''>
@@ -53,7 +52,7 @@ function PostPage ({providers, trendingResults, followResults}){
                 Dashboard
             </div>
             <Post id={id} post={post} postPage />
-            { comments.length > 0 && (
+            {/* { comments.length > 0 && (
                 <div className="pb-72">
                     {comments.map(comment =>(
                         <Comment key={comment.id}
@@ -61,7 +60,7 @@ function PostPage ({providers, trendingResults, followResults}){
                         comment={comment.data()}/>
                     ))}
                 </div>
-            ) }
+            ) } */}
           </div>
             {isOpen && <Modal />} 
         </main>

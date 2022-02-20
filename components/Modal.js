@@ -48,7 +48,8 @@ const sendComment = async (e) => {
     await addDoc(collection(db, 'posts', postId,"comments"),{
         comment: comment,
         username: session.user.name,
-        tag: session.user.image,
+        tag: session.user.tag,
+        userProfile: session.user.image,
         timestamp: serverTimestamp()
     })
 
