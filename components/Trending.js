@@ -24,8 +24,8 @@ const Trending = ({result}) => {
         {result.img ? (
             <Image 
                 src={result.img}
-                width={"70"}
-                height={"70"}
+                width={70}
+                height={70}
                 objectFit="cover"
                 className="rounded-2xl"
             />
