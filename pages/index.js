@@ -6,6 +6,7 @@ import Login from '../components/Login'
 import Modal from '../components/Modal'
 import { useRecoilState } from 'recoil'
 import { modalState } from '../atoms/modalAtom'
+import Widgets from '../components/Widgets'
 
 export default function Home({providers, trendingResults, followResults}) {
 
@@ -28,7 +29,7 @@ export default function Home({providers, trendingResults, followResults}) {
       <main className='flex bg-black min-h-screen max-w-[1500px] mx-auto'>
         <Sidebar />
         <Feed />
-        {/* Widget */}
+        <Widgets />
           {isOpen && <Modal />} 
       </main>
     </div>

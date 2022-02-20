@@ -11,6 +11,7 @@ import Login from "../components/Login"
 import Modal from "../components/Modal"
 import Post from "../components/Post"
 import Sidebar from "../components/Sidebar"
+import Widgets from "../components/Widgets"
 import { db } from "../firebase"
 
 function PostPage ({providers, trendingResults, followResults}){
@@ -65,6 +66,7 @@ function PostPage ({providers, trendingResults, followResults}){
                 
             ) }    
           </div>
+          <Widgets />
             {isOpen && <Modal />} 
         </main>
       </div>
