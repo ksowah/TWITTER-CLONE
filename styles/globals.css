@@ -18,6 +18,6 @@
     }
 
     .tag{
-        @apply text-[#1d9bf0 font-normal hover:underline cursor-pointer]
+        @apply text-[#1d9bf0] font-normal hover:underline cursor-pointer;
     }
 }
