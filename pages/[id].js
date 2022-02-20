@@ -6,6 +6,7 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import { useRecoilState } from "recoil"
 import { modalState } from "../atoms/modalAtom"
+import Comment from "../components/Comment"
 import Login from "../components/Login"
 import Modal from "../components/Modal"
 import Post from "../components/Post"
@@ -25,14 +26,15 @@ function PostPage ({providers, trendingResults, followResults}){
         onSnapshot(doc(db, "posts", id), (snapshot) => {
             setPost(snapshot.data())
         })
-    },[])
+    },[db])
 
-    useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), (snapshot)=>
+    useEffect(()=> onSnapshot(query(collection(db,"posts",id,"comments"), orderBy("timestamp", "desc")), 
+    (snapshot)=>
     setComments(snapshot.docs)
 ), [db, id])
 
     if(!session) return <Login providers={providers}/>
-
+ 
 
     return(
     <div className=''>
@@ -52,15 +54,16 @@ function PostPage ({providers, trendingResults, followResults}){
                 Dashboard
             </div>
             <Post id={id} post={post} postPage />
-            {/* { comments.length > 0 && (
+            { comments.length > 0 && (
                 <div className="pb-72">
-                    {comments.map(comment =>(
+                    {comments.map((comment) =>(
                         <Comment key={comment.id}
                         id={comment.id}
                         comment={comment.data()}/>
                     ))}
                 </div>
-            ) } */}
+                
+            ) }    
           </div>
             {isOpen && <Modal />} 
         </main>
