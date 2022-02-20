@@ -9,7 +9,15 @@ const Trending = ({result}) => {
                 {result?.heading}
             </p>
             <h6 className="font-bold max-w-[250px] text-sm">
-                {result?.description}</h6>
+                {result?.description}
+            </h6>
+            <p className="">
+                Trending with {result.tags.map((tag, index) => (
+                    <span key={index} className='tag'>
+                        {tag}
+                    </span>
+                ))}
+            </p>
         </div>
     </div>
   )
