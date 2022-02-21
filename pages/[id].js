@@ -45,7 +45,7 @@ function PostPage ({providers, trendingResults, followResults}){
           <link rel="icon" href="https://th.bing.com/th/id/R.6f6f59ca9a56444cfff8d89aaa09d100?rik=pAkm1nprRZgYVA&pid=ImgRaw&r=0" />
         </Head>
   
-        <main className='flex bg-black min-h-screen max-w-[1500px] mx-auto'>
+        <main className='flex bg-black min-h-screen max-w-[1400px] mx-auto'>
           <Sidebar />
           <div className="flex-grow border-l border-r border-gray-700 max-w-2xl sm:ml-[73px] xl:ml-[370px]">
             <div className="flex items-center px-1.5 py-2 border-b border-gray-700 text-[#d9d9d9] font-semibold text-xl gap-x-4 sticky top-0 z-50 bg-black">
