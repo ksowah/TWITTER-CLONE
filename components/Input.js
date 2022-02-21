@@ -84,7 +84,7 @@ const Input = () => {
             <div className={`${selectedFile && "pb-7"} ${input && "space-y-2.5"}`}>
                 <textarea value={input} rows='2'
                 onChange={(e)=>setInput(e.target.value)}
-                 placeholder='What are you currently working on?' 
+                 placeholder="Whats's happening?" 
                 className='bg-transparent outline-none 
                 text-[#d9d9d9] text-md placeholder-gray-500 tracking-wide w-full min-h-[50px]' 
                 />
@@ -108,7 +108,7 @@ const Input = () => {
             <div className='flex items-center'>
                 <div className='icon' onClick={()=> filePickerRef.current.click()}>
                     <PhotographIcon className='h-[22px] text-[#1d9bf0]'/>
-                    <input type={'file'} hidden onChange={addImageToPost} ref={filePickerRef}/>
+                    <input type={'file'} accept=".png, .jpeg, .tiff, .jpg" hidden onChange={addImageToPost} ref={filePickerRef}/>
                 </div>
                 <div className='icon rotate-90'>
                     <ChartBarIcon className='h-[22px] text-[#1d9bf0]'/>
