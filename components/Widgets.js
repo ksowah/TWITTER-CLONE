@@ -17,7 +17,7 @@ const Widgets = ({followResults, trendingResults}) => {
                {"What's happening?"}
             </h4>
 
-            {trendingResults.map((result, index) => (
+            {trendingResults?.map((result, index) => (
                 <Trending key={index} result={result} />
             ))}
 

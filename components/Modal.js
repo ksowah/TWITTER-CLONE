@@ -183,7 +183,7 @@ const sendComment = async (e) => {
             hover:bg-[#1a8cd8] disabled:hover:bg-[#1d9bf0] disabled:opacity-50 disabled:cursor-default'
              onClick={sendComment}
            >
-                Send
+                Reply
             </button>
         </div>
                             </div>
