@@ -1,5 +1,4 @@
 import Head from "next/head"
-import { AiFillGithub } from "react-icons/ai";
 import { FcGoogle } from "react-icons/fc";
 import { signIn } from "next-auth/react";
 import Image from "next/image";
