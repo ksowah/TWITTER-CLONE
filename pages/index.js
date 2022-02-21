@@ -23,7 +23,7 @@ export default function Home({providers, trendingResults, followResults}) {
       <Head>
         <title>Twitter</title>
         <meta name="description" content="Developers can publish their projects"/>
-        <link rel="icon" href="https://rb.gy/ogau5a" />
+        <link rel="icon" href="https://th.bing.com/th/id/R.902fa6464d5e8e7ed27f3ca4d37398a9?rik=NqVYfao0nm3ZYQ&pid=ImgRaw&r=0" />
       </Head>
 
       <main className='flex bg-black min-h-screen max-w-[1500px] mx-auto'>
