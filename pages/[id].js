@@ -40,8 +40,8 @@ function PostPage ({providers, trendingResults, followResults}){
     return(
     <div className=''>
         <Head>
-          <title>{post?.username} on the dashboard: "{post?.message}"</title>
-          <meta name="description" content="Developers can publish their projects"/>
+          <title>{post?.username} on twitter: "{post?.message}"</title>
+          <meta name="description" content="twitter clone"/>
           <link rel="icon" href="https://th.bing.com/th/id/R.6f6f59ca9a56444cfff8d89aaa09d100?rik=pAkm1nprRZgYVA&pid=ImgRaw&r=0" />
         </Head>
   
@@ -52,7 +52,7 @@ function PostPage ({providers, trendingResults, followResults}){
                 <div className="hoverAnimation w-9 h-9 flex items-center justify-center xl:px-0">
                      <ArrowLeftIcon className="h-5 text-white" onClick={() => router.push("/")}/>
                 </div>
-                Dashboard
+                Tweet
             </div>
             <Post id={id} post={post} postPage />
             { comments.length > 0 && (
