@@ -31,7 +31,7 @@ const Sidebar = () => {
             <SidebarItems text='Bookmarks' Icon={BookmarkIcon}/>
             <SidebarItems text='Lists' Icon={ClipboardListIcon}/>
             <SidebarItems text='Profile' Icon={UserIcon}/>
-            <SidebarItems text='home' Icon={DotsCircleHorizontalIcon}/>
+            <SidebarItems text='More ' Icon={DotsCircleHorizontalIcon}/>
         </div>
         <button className='hidden xl:inline ml-auto bg-[#1d9bf0] rounded-full text-white w-56 h-[52px] text-lg font-bold shadow-md hover:bg-[#1a8cd8]'>Tweet</button>
         <div onClick={signOut}
