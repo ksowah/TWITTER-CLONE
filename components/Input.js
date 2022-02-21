@@ -108,7 +108,7 @@ const Input = () => {
             <div className='flex items-center'>
                 <div className='icon' onClick={()=> filePickerRef.current.click()}>
                     <PhotographIcon className='h-[22px] text-[#1d9bf0]'/>
-                    <input type={'file'} hidden onChange={addImageToPost} ref={filePickerRef}/>
+                    <input type={'file'} accept=".png, .jpeg, .tiff, .jpg" hidden onChange={addImageToPost} ref={filePickerRef}/>
                 </div>
                 <div className='icon rotate-90'>
                     <ChartBarIcon className='h-[22px] text-[#1d9bf0]'/>
