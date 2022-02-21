@@ -8,6 +8,7 @@ const Login = ({providers}) => {
       <>
         <Head>
             <title>Login</title>
+            <link rel="icon" href="https://th.bing.com/th/id/R.902fa6464d5e8e7ed27f3ca4d37398a9?rik=NqVYfao0nm3ZYQ&pid=ImgRaw&r=0" />
         </Head>
 
         <div className='h-screen flex flex-col items-center justify-center'>
