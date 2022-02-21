@@ -1,5 +1,4 @@
 import { SearchIcon } from "@heroicons/react/outline"
-import Image from "next/image"
 import Trending from "./Trending"
 
 const Widgets = ({followResults, trendingResults}) => {
@@ -15,7 +14,7 @@ const Widgets = ({followResults, trendingResults}) => {
         </div>
         <div className="text-[#d9d9d9] space-y-3 bg-[#15181c] pt-2 rounded-xl w-11/12 xl:w-9/12">
             <h4 className="font-bold text-xl px-4">
-                What's happening
+               {"What's happening?"}
             </h4>
 
             {trendingResults.map((result, index) => (
