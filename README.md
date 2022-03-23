@@ -2,16 +2,19 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Visuals
 - Login Page 
-- ![name-of-you-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/login.png?raw=true)
+- ![login-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/login.png?raw=true)
 
 - Home Page
-- ![name-of-you-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/home.png?raw=true)
+- ![home-page-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/home.png?raw=true)
 
 - Tweet
-- ![name-of-you-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/tweet.png?raw=true)
+- ![tweet-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/tweet.png?raw=true)
 
--Post
--![name-of-you-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/post.png?raw=true)
+- Post
+- ![post-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/post.png?raw=true)
+
+- Me
+- ![kelvin-image](https://github.com/ksowah/TWITTER-CLONE/blob/twitter-remote/images/me.png?raw=true)
 
 ## Description
 Today I completed a Project I've been working on. It is a clone of twitter. Users can sign in and make posts, comment and like other posts from other users I built it with React JS, Next JS and made use of Next Auth to persist users Login state. Images posted by users are uploaded to firebase cloud storage after which a URL to that image is pushed to firebase firestore ( A no SQL database ) along with some other user data. These data is then rendered on the server and displayed to the users.
